@@ -29,6 +29,7 @@ public class testing {
 
         if (userChoice.equals("yes")) {
             // Clear the console by overwriting the output and proceed to the menu
+        	loadingScreen(1000);
             clearConsole();
             // Proceed to the menu
             boolean exit = false;
@@ -72,6 +73,7 @@ public class testing {
 
             switch (choice) {
                 case 1:
+                	loadingScreen(1000);
                     calculator(scanner);
                     break;
                 case 2:
@@ -138,9 +140,9 @@ public class testing {
 
     // Clear the console (simulated by overwriting the output)
     public static void clearConsole() {
-        // Print a bunch of carriage returns (\r) to overwrite the loading screen
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  // This will attempt to clear the console
+        for (int i = 0; i <= 100; i++) {
+        	System.out.println("\n");
+        }
     }
 
     private static void cmToM(Scanner scanner) {
