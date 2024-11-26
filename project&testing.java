@@ -1,13 +1,13 @@
-package name;
+package ICT1M3xGroup2;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class testing {
+public class FinalProject {
 
     // ANSI color codes
-    public static final String RESET = "\u001B[0m"; // Reset code
+    public static final String RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -16,20 +16,19 @@ public class testing {
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
-    public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
-    public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
-    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
-    public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
+    public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m"; 
+    public static final String ANSI_RED_BACKGROUND = "\u001B[41m";  
+    public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m"; 
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print(ANSI_BLACK_BACKGROUND + ANSI_RED + "Do you want to go to the menu? (yes/no): ");
+        System.out.print(ANSI_BLACK_BACKGROUND + ANSI_RED + "Do you want to go to the menu? (yes/no): " + RESET );
         String userChoice = scanner.next().toLowerCase();
 
         if (userChoice.equals("yes")) {
             // Clear the console by overwriting the output and proceed to the menu
-        	loadingScreen(1000);
+        	loadingScreen(2500);
             clearConsole();
             // Proceed to the menu
             boolean exit = false;
@@ -37,9 +36,6 @@ public class testing {
                 // Show the menu and let the user select an option
                 showMenu(scanner);
 
-                // After each operation in the menu, ask if the user wants to continue
-                System.out.print(ANSI_BLACK_BACKGROUND + ANSI_RED + "Do you want to continue? (yes/no): ");
-                userChoice = scanner.next().toLowerCase();
 
                 if (userChoice.equals("no")) {
                     exit = true;  // Exit the loop
@@ -73,7 +69,6 @@ public class testing {
 
             switch (choice) {
                 case 1:
-                	loadingScreen(1000);
                     calculator(scanner);
                     break;
                 case 2:
@@ -106,22 +101,22 @@ public class testing {
     
     public static void loadingScreen(long waitTimeMS) {
         String heart = 
-                 "   *****      *****   \n" +
-                "  *******    *******  \n" +
-                " *********  ********* \n" +
-                "*********************\n" +
-                " ******************* \n" +
-                "  *****************  \n" +
-                "   ***************   \n" +
-                "    *************    \n" +
-                "     ***********     \n" +
-                "      *********      \n" +
-                "       *******       \n" +
-                "        *****        \n" +
-                "         ***         \n" +
-                "          *          \n";
+                "   *****      *****    \n" +
+                "  *******    *******   \n" +
+                " *********  *********  \n" +
+                "*********************  \n" +
+                " *******************   \n" +
+                "  *****************    \n" +
+                "   ***************     \n" +
+                "    *************      \n" +
+                "     ***********       \n" +
+                "      *********        \n" +
+                "       *******         \n" +
+                "        *****          \n" +
+                "         ***           \n" +
+                "          *            \n";
         // Print Heart Art
-        System.out.println(ANSI_CYAN + heart + RESET);
+        System.out.println(ANSI_BLACK_BACKGROUND + ANSI_RED + heart + RESET);
         
         String[] loadingFrames = {"|", "/", "-", "\\"};
         long waitTime = waitTimeMS / 10;
@@ -185,7 +180,6 @@ public class testing {
 				System.out.println(ANSI_RED + "Error: " + e.getMessage() + RESET);
 			}				 		
 		}
-    
 
     private static void rectangleAreaAndPerimeter(Scanner scanner) {
 			try { 
@@ -212,7 +206,6 @@ public class testing {
 			
 	}
     
-
     private static void circleAreaAndCircumference(Scanner scanner) {
     		try {
     			System.out.print("Enter the radius of the circle: ");
@@ -235,10 +228,6 @@ public class testing {
     		}
     		
     	}
-        // TODO: Implement the method
- 
-
-    // Loading screen method with 0 to 100% progress bar and ASCII art
 
     // Basic Calculator with enhanced error handling using integer choices for operations
     public static void calculator(Scanner scanner) {
@@ -278,7 +267,6 @@ public class testing {
                     default:
                         System.out.println(ANSI_BLUE + "Invalid choice. Please select a valid operation (1-4)." + RESET);
                 }
-
                 // Ask if the user wants to continue the calculator
                 System.out.print(ANSI_YELLOW + "Do you want to continue in Calculator? (yes/no): ");
                 String continueChoice = scanner.next().toLowerCase();
@@ -295,5 +283,6 @@ public class testing {
                 System.out.println(ANSI_RED + "Error: " + e.getMessage() + RESET);
             }
         }
+        
     }
 }
